@@ -7,9 +7,8 @@ Welcome to KISTI CA based on EJBCA's documentation!
 ===================================================
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 2
    :glob:
-   :numbered:
    :caption: Contents:
 
    intro

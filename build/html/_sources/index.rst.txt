@@ -13,6 +13,7 @@ Welcome to KISTI CA based on EJBCA's documentation!
 
    intro
    Introduction_to_EJBCA
+   EJBCA_Installation
 
 Indices and tables
 ==================

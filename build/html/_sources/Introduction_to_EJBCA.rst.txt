@@ -56,15 +56,19 @@ First of all, we need to establish some general terms in order to continue.
     :align: center
 
 * Root CA
+
 A RootCA has a self-signed certificate and is also called Trusted Root. Verification of other certificates in the PKI ends with the RootCAs self-signed certificate. Since the RootCAs certificate is self-signed it must somehow be configured as a trusted root for all clients in the PKI.
 
 * Sub CA
+
 A subordinate CA, or SubCA for short, is a CA whose certificate is signed by another CA, which can be another SubCA or a RootCA. Since the SubCAs certificate is signed by another CA, it does not have to be configured as a trusted root. It is part of a certificate chain that ends in the RootCA.
 
 * Registration Authority (RA)
+
 A Registration Authority (RA) is an administrative function that registers entities in the PKI. The RA is trusted to identify and authenticate entities according to the CAs policy. There can be one or more RAs connected to each CA in the PKI.
 
 * Validation Authority (VA)
+
 A Validation Authority (VA) is responsible for providing information on whether a certificate is currently valid or not. The VA does not issue or revoke certificates, but it validates certificates by providing a list of revoked certificates for a CA, known as a Certificate Revocation List (CRL). Another method that the VA can support is the Online Certificate Status Protocol (OCSP). It is a real-time lookup of a certificate status, compared to the CRL which is generated on a set schedule. The VA can respond to OCSP requests and reply if a certificate is good, revoked, or unknown. There can be one or more VAs connected to each CA in the PKI.
 
 Certificate Related Concepts
@@ -79,6 +83,7 @@ The level of trust you can assign to a CA is individual, per CA, and depends on 
 For more information, see Certificate Authority Overview.
 
 * End Entity
+
 An End Entity is a user of the PKI, like a device, person, or server. It is called the End Entity because in a hierarchy of certificates in the PKI, it is always the end point, since it is not authorized to issue any certificates of its own.
 
 The End Entity individual or device requests a certificate from the CA or RA. One End Entity can hold many certificates, but all of these certificates will have the same identifying values (Subject DN, Subject Alternative Name, etc). 
@@ -98,6 +103,7 @@ Each End Entity is enrolled against one and only one CA, which will be known as 
 For more information, see End Entities Overview.
 
 * End Entity Profile
+
 End Entity Profiles define templates for End Entities. An End Entity Profile isn't inherently necessary as EJBCA provides a default profile (named Empty) which provides no constraints, but for almost all PKIs it's useful and often necessary to put some constraints on what values that users may use to enroll for an End Entity. The values defined in End Entity Profiles are those that pertain to the End Entity directly, and by extension into the identifying fields in the certificate except for data regarding keys and signatures, which will be defined in the Certificate Profiles. The typical values defined, besides available Certificate Profiles and available CAs, will be identifying values such as Subject DN (country, organization, common name, etc) and Subject Alternative Names (SAN) such as dnsName.
 
 .. image:: ../images/certificate-profile.png
